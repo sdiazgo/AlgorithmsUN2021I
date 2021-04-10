@@ -25,13 +25,15 @@ def calc_rt(li, ls, co, n):
     coef=co
     subin=n
     dx=(lim_s-lim_i)/subin
+    signo = 1
     if lim_i>lim_s:
         lim_i=ls
         lim_s=li
         dx=(lim_s-lim_i)/subin
+        signo=-1
     resultado = 0
     i = lim_i
     while i < lim_s:
         resultado = resultado + dx*((((i+dx)**2)+(i**2))/2)
         i +=dx
-    return coef*resultado
+    return coef*resultado*signo
